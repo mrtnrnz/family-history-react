@@ -44,6 +44,12 @@ const Container = () => {
     })
   );
 
+  const clearStateOnSubmitHandler = () => {
+    setFirstNameState("");
+    setLastNameState("");
+    setRelationshipState("");
+  };
+
   const submitButtonEventHandler = () => {
     if(modifyName === "") {
       return;
@@ -89,6 +95,7 @@ const Container = () => {
             } 
           }
           setModalState(prevState => !prevState);
+          clearStateOnSubmitHandler();
         }
       } else if(modifyName === "Delete" && firstNameState !== "") {
 
@@ -113,6 +120,7 @@ const Container = () => {
           }
         });
         setModalState(prevState => !prevState);
+        clearStateOnSubmitHandler();
       }
     }
   };
